@@ -17,7 +17,7 @@ import 'src/list_component.dart';
   // providers: const [materialProviders],
 )
 @RouteConfig(const [
-  const Route(path: '/top', name: 'Top', component: ListComponent),
+  const Route(path: '/', name: 'Top', component: ListComponent),
   const Route(path: '/new', name: 'New', component: ListComponent),
   const Route(path: '/show', name: 'Show', component: ListComponent),
   const Route(path: '/ask', name: 'Ask', component: ListComponent),

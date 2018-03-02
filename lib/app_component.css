@@ -1,3 +1,40 @@
-:host {
-  /* This is equivalent of the 'body' selector of a page. */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #00a4e4;
+}
+
+nav {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+nav a {
+  color: #fff;
+  display: inline-block;
+  padding: 0 8px;
+  line-height: 48px;
+  height: 48px;
+}
+
+nav a.source {
+  float: right;
+}
+
+.router-link-active {
+  border-bottom: 2px solid #fff;
+}
+
+main {
+  margin-top: 48px;
+}
+
+.page {
+  height: 48px;
+  text-align: center;
+}
+
+.page a {
+
 }

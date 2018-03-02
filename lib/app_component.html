@@ -1,10 +1,14 @@
 <header>
   <nav>
-    <ul>
-      <li *ngFor="let tab of tabs">
-        <a [routerLink]="[tab]">{{ tab }}</a>
-      </li>
-    </ul>
+    <a *ngFor="let tab of tabs" [routerLink]="[tab]">{{ tab }}</a>
+    <a href="https://github.com/pd4d10/dart-hn" class="source" target="_blank">source</a>
   </nav>
 </header>
-<router-outlet></router-outlet>
+<main>
+  <div class="page">
+    <a href="#">&lt; prev</a>
+    1/20
+    <a href="#">next &gt;</a>
+  </div>
+  <router-outlet></router-outlet>
+</main>

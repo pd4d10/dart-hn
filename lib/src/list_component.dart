@@ -26,7 +26,7 @@ class ListComponent implements OnInit {
     initializeApp(databaseURL: 'https://hacker-news.firebaseio.com');
     this.ref = database().ref('/v0');
     this.ref.child('topstories').once('value').then((queryEvent) {
-      this.items = queryEvent.snapshot.val().sublist(0, 1);
+      this.items = queryEvent.snapshot.val().sublist(0, 30);
       this.items.forEach((item) {
         this.ref.child('item/$item').once('value').then((queryEvent) {
           this.stories[item] = queryEvent.snapshot.val();

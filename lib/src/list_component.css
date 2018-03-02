@@ -1,0 +1,30 @@
+h2 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+h2 a {
+  color: #111;
+}
+
+p {
+  color: #707070;
+  font-size: 13px;
+}
+
+p > a {
+  color: #707070;
+  text-decoration: underline;
+}
+
+ol {
+  padding-left: 30px;
+}
+
+li {
+  padding: 10px 0;
+}

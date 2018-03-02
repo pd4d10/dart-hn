@@ -25,28 +25,3 @@ nav a.source {
 .router-link-active {
   border-bottom: 2px solid #fff;
 }
-
-.page {
-  position: fixed;
-  background: #fff;
-  top: 48px;
-  width: 100%;
-  height: 48px;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.page a {
-  margin: 12px;
-  color: #222;
-}
-
-.page a.disabled {
-  color: #ccc;
-}
-
-main {
-  margin: 96px auto 20px;
-  max-width: 980px;
-}

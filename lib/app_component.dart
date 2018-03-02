@@ -10,16 +10,22 @@ import 'src/user_component.dart';
   styleUrls: const ['app_component.css'],
   templateUrl: 'app_component.html',
   directives: const [ROUTER_DIRECTIVES, CORE_DIRECTIVES],
-  providers: const [ROUTER_PROVIDERS],
 )
 @RouteConfig(const [
   const Route(
-      path: '/top', name: 'Top', component: ListComponent, useAsDefault: true),
-  const Route(path: '/top/:page', name: 'Top', component: ListComponent),
-  const Route(path: '/new', name: 'New', component: ListComponent),
-  const Route(path: '/show', name: 'Show', component: ListComponent),
-  const Route(path: '/ask', name: 'Ask', component: ListComponent),
-  const Route(path: '/jobs', name: 'Jobs', component: ListComponent),
+    path: '/',
+    name: 'Top',
+    component: ListComponent,
+  ),
+  const Route(
+    path: '/top/:page',
+    name: 'Top',
+    component: ListComponent,
+  ),
+  const Route(path: '/new/:page', name: 'New', component: ListComponent),
+  const Route(path: '/show/:page', name: 'Show', component: ListComponent),
+  const Route(path: '/ask/:page', name: 'Ask', component: ListComponent),
+  const Route(path: '/jobs/:page', name: 'Jobs', component: ListComponent),
   const Route(path: '/user/:id', name: 'User', component: UserComponent),
   const Route(path: '/**', name: 'NotFound', component: NotFoundComponent)
 ])

@@ -1,17 +1,25 @@
-<div>
-  <ol>
-    <li *ngFor="let i of items">
-      <div *ngIf="stories[i] != null">
-        <h2>
-          <a [href]="stories[i]['url']">{{stories[i]['title']}}</a>
-        </h2>
-        <p>
-          {{stories[i]['score']}} points by
-          <a [href]="'#'">{{stories[i]['by']}}</a>
-          {{stories[i]['time']}}
-          <a [href]="'#'">{{stories[i]['descendants']}} comments</a>
-        </p>
-      </div>
-    </li>
-  </ol>
+<div class="page">
+  <a [ngClass]="prevClass" [routerLink]="prevLink">&lt; prev</a>
+  {{page}}/{{count}}
+  <a [ngClass]="nextClass" [routerLink]="nextLink">next &gt;</a>
 </div>
+<main>
+  <div>
+    <ol [start]="start + 1">
+      <li *ngFor="let i of items">
+        <div *ngIf="stories[i] != null">
+          <h2>
+            <a [href]="stories[i]['url']">{{stories[i]['title']}}</a>
+          </h2>
+          <p>
+            {{stories[i]['score']}} points by
+            <a [href]="'#'">{{stories[i]['by']}}</a>
+            {{stories[i]['time']}}
+            <a [href]="'#'">{{stories[i]['descendants']}} comments</a>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+</main>

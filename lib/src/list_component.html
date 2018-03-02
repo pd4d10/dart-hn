@@ -1,6 +1,6 @@
 <div class="page">
   <a [ngClass]="prevClass" [routerLink]="prevLink">&lt; prev</a>
-  {{page}}/{{count}}
+  {{page}}/{{count == 0 ? '...' : count}}
   <a [ngClass]="nextClass" [routerLink]="nextLink">next &gt;</a>
 </div>
 <main>

@@ -6,6 +6,7 @@ import 'package:firebase/firebase.dart';
 import 'package:angular_router/angular_router.dart';
 
 import 'list_service.dart';
+import 'utils.dart';
 
 DatabaseReference ref;
 
@@ -19,32 +20,45 @@ DatabaseReference ref;
 class ListComponent implements OnInit {
   List<int> items = [];
   int page;
+  String tag;
   int total = 0; // TODO: Fix blink
 
   Map<int, dynamic> stories = {};
+  final Router _router;
   final RouteParams _routeParams;
   final PAGE_SIZE = 30;
 
-  ListComponent(this._routeParams) {
+  ListComponent(this._routeParams, this._router) {
+    var _tag = _routeParams.get('tag');
+    if (TAGS.contains(_tag)) {
+      tag = _tag;
+    } else {
+      this._router.navigate([
+        'List',
+        {'tag': 'top'}
+      ]);
+      return;
+    }
     var _page = _routeParams.get('page') ?? '1';
-    this.page = int.parse(_page, onError: (_) => null) ?? 1;
+    page = int.parse(_page, onError: (_) => null) ?? 1;
+    print(_routeParams.params);
   }
 
   get start => (page - 1) * PAGE_SIZE;
   get count => (total / PAGE_SIZE).ceil();
 
-  get _hasPrev => page >= 2;
-  get _hasNext => page <= count;
+  get _hasPrev => page - 1 >= 1;
+  get _hasNext => page + 1 <= count;
   get prevLink => getLink(page - 1, _hasPrev);
   get nextLink => getLink(page + 1, _hasNext);
-  get prevClass => getClass(page - 1 >= 1);
-  get nextClass => getClass(page + 1 <= count);
+  get prevClass => getClass(_hasPrev);
+  get nextClass => getClass(_hasNext);
 
   getLink(int _page, bool _valid) {
     if (_valid) {
       return [
-        'Top',
-        {'page': _page.toString()},
+        'List',
+        {'tag': tag, 'page': _page.toString()},
       ];
     } else {
       return null;
@@ -61,14 +75,14 @@ class ListComponent implements OnInit {
       initializeApp(databaseURL: 'https://hacker-news.firebaseio.com');
       ref = database().ref('/v0');
     }
-    ref.child('topstories').once('value').then((queryEvent) {
+    ref.child(DB_MAP[tag]).once('value').then((queryEvent) {
       var _items = queryEvent.snapshot.val() as List;
       total = _items.length;
       items = _items.sublist(start, min(start + PAGE_SIZE, total));
       items.forEach((item) {
-        if (this.stories[item] == null) {
+        if (stories[item] == null) {
           ref.child('item/$item').once('value').then((queryEvent) {
-            this.stories[item] = queryEvent.snapshot.val();
+            stories[item] = queryEvent.snapshot.val();
           });
         }
       });

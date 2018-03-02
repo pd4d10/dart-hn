@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <a *ngFor="let tab of tabs" [routerLink]="[tab, { 'page': '1' }]">{{ tab }}</a>
+    <a *ngFor="let tag of tags" [routerLink]="getRouterLinks(tag)">{{ tag }}</a>
     <a href="https://github.com/pd4d10/dart-hn" class="source" target="_blank">source</a>
   </nav>
 </header>

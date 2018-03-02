@@ -1,3 +1,10 @@
-<h1>My First AngularDart App</h1>
-
-<todo-list></todo-list>
+<header>
+  <nav>
+    <ul>
+      <li *ngFor="let tab of tabs">
+        <a [routerLink]="[tab]">{{ tab }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<router-outlet></router-outlet>

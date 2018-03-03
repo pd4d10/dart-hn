@@ -5,6 +5,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
 import 'hn_service.dart';
+import 'pipe.dart';
 import 'utils.dart';
 
 @Component(
@@ -13,6 +14,7 @@ import 'utils.dart';
   templateUrl: 'list_component.html',
   directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
   providers: const [HNService],
+  pipes: const [TimeAgoPipe],
 )
 class ListComponent implements OnInit {
   List<int> items = [];

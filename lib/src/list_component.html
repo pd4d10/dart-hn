@@ -13,7 +13,7 @@
         <p>
           {{stories[i]['score']}} points by
           <a [routerLink]="getUserLink(stories[i]['by'])">{{stories[i]['by']}}</a>
-          {{stories[i]['time']}}
+          {{stories[i]['time'] | timeAgo}}
           <a [routerLink]="getItemLink(stories[i]['id'])">{{stories[i]['descendants']}} comments</a>
         </p>
       </div>

@@ -4,22 +4,20 @@
   <a [ngClass]="nextClass" [routerLink]="nextLink">next &gt;</a>
 </div>
 <main>
-  <div>
-    <ol [start]="start + 1">
-      <li *ngFor="let i of items">
-        <div *ngIf="stories[i] != null">
-          <h2>
-            <a [href]="stories[i]['url']">{{stories[i]['title']}}</a>
-          </h2>
-          <p>
-            {{stories[i]['score']}} points by
-            <a [href]="'#'">{{stories[i]['by']}}</a>
-            {{stories[i]['time']}}
-            <a [href]="'#'">{{stories[i]['descendants']}} comments</a>
-          </p>
-        </div>
-      </li>
-    </ol>
-  </div>
+  <ol [start]="start + 1">
+    <li *ngFor="let i of items">
+      <div *ngIf="stories[i] != null">
+        <h2>
+          <a [href]="stories[i]['url']">{{stories[i]['title']}}</a>
+        </h2>
+        <p>
+          {{stories[i]['score']}} points by
+          <a [routerLink]="getUserLink(stories[i]['by'])">{{stories[i]['by']}}</a>
+          {{stories[i]['time']}}
+          <a [routerLink]="getItemLink(stories[i]['id'])">{{stories[i]['descendants']}} comments</a>
+        </p>
+      </div>
+    </li>
+  </ol>
 
 </main>

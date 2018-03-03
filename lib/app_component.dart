@@ -4,6 +4,7 @@ import 'package:angular_router/angular_router.dart';
 import 'src/list_component.dart';
 import 'src/not_found_component.dart';
 import 'src/user_component.dart';
+import 'src/item_component.dart';
 import 'src/utils.dart';
 
 @Component(
@@ -30,13 +31,22 @@ import 'src/utils.dart';
     component: UserComponent,
   ),
   const Route(
+    path: '/item/:id',
+    name: 'Item',
+    component: ItemComponent,
+  ),
+  const Route(
     path: '/**',
     name: 'NotFound',
     component: NotFoundComponent,
   )
 ])
 class AppComponent {
-  final tags = TAGS;
+  final tags = TAGS.sublist(1);
+  final homeLink = [
+    'List',
+    {'tag': ''}
+  ];
   getRouterLinks(tag) => [
         'List',
         {'tag': tag}

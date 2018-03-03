@@ -1,9 +1,9 @@
 final DB_MAP = {
-  'top': 'topstories',
+  '': 'topstories',
   'new': 'newstories',
   'show': 'showstories',
   'ask': 'askstories',
   'jobs': 'jobstories',
 };
 
-final TAGS = ['top', 'new', 'show', 'ask', 'jobs'];
+final TAGS = ['', 'new', 'show', 'ask', 'jobs'];

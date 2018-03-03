@@ -2,20 +2,17 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-import 'package:firebase/firebase.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'list_service.dart';
+import 'hn_service.dart';
 import 'utils.dart';
-
-DatabaseReference ref;
 
 @Component(
   selector: 'list',
   styleUrls: const ['list_component.css'],
   templateUrl: 'list_component.html',
   directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
-  providers: const [TodoListService],
+  providers: const [HNService],
 )
 class ListComponent implements OnInit {
   List<int> items = [];
@@ -26,16 +23,17 @@ class ListComponent implements OnInit {
   Map<int, dynamic> stories = {};
   final Router _router;
   final RouteParams _routeParams;
+  final HNService _service;
   final PAGE_SIZE = 30;
 
-  ListComponent(this._routeParams, this._router) {
+  ListComponent(this._routeParams, this._router, this._service) {
     var _tag = _routeParams.get('tag');
     if (TAGS.contains(_tag)) {
       tag = _tag;
     } else {
       this._router.navigate([
         'List',
-        {'tag': 'top'}
+        {'tag': ''}
       ]);
       return;
     }
@@ -69,22 +67,23 @@ class ListComponent implements OnInit {
     return _valid ? '' : 'disabled';
   }
 
+  getUserLink(id) => [
+        'User',
+        {'id': id}
+      ];
+  getItemLink(id) => [
+        'Item',
+        {'id': id}
+      ];
+
   @override
-  Future<Null> ngOnInit() async {
-    if (ref == null) {
-      initializeApp(databaseURL: 'https://hacker-news.firebaseio.com');
-      ref = database().ref('/v0');
-    }
-    ref.child(DB_MAP[tag]).once('value').then((queryEvent) {
-      var _items = queryEvent.snapshot.val() as List;
-      total = _items.length;
-      items = _items.sublist(start, min(start + PAGE_SIZE, total));
-      items.forEach((item) {
-        if (stories[item] == null) {
-          ref.child('item/$item').once('value').then((queryEvent) {
-            stories[item] = queryEvent.snapshot.val();
-          });
-        }
+  ngOnInit() async {
+    var _items = await _service.fetchList(tag);
+    total = _items.length;
+    items = _items.sublist(start, min(start + PAGE_SIZE, total));
+    items.forEach((id) {
+      _service.fetchItem((id)).then((data) {
+        stories[id] = data;
       });
     });
   }

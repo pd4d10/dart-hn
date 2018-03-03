@@ -1,1 +1,9 @@
-<h1>Hello {{name}}</h1>
+<main *ngIf="user != null">
+  <h1>{{user['id']}}</h1>
+  <p>created: {{user['created'] | timeAgo}}</p>
+  <p>karma: {{user['karma']}}</p>
+  <p class="links">
+    <a [href]="'https://news.ycombinator.com/submitted?id=' + user['id']">submissions</a> |
+    <a [href]="'https://news.ycombinator.com/threads?id=' + user['id']">comments</a>
+  </p>
+</main>

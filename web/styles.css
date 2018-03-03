@@ -27,3 +27,8 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+main {
+  max-width: 980px;
+  margin: 48px auto 20px;
+}

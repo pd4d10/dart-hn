@@ -7,6 +7,7 @@ import 'utils.dart';
 
 DatabaseReference ref;
 Map<int, dynamic> stories = {};
+Map<String, dynamic> users = {};
 
 /// Mock service emulating access to a to-do list stored on a server.
 @Injectable()
@@ -19,19 +20,23 @@ class HNService {
   }
 
   Future<List<int>> fetchList(String tag) async {
-    return ref.child(DB_MAP[tag]).once('value').then((queryEvent) {
-      return queryEvent.snapshot.val();
-    });
+    var _query = await ref.child(DB_MAP[tag]).once('value');
+    return _query.snapshot.val();
   }
 
   Future<Map<String, dynamic>> fetchItem(int id) async {
     if (stories[id] == null) {
-      return ref.child('item/$id').once('value').then((queryEvent) {
-        stories[id] = queryEvent.snapshot.val();
-        return stories[id];
-      });
-    } else {
-      return stories[id];
+      var _query = await ref.child('item/$id').once('value');
+      stories[id] = _query.snapshot.val();
     }
+    return stories[id];
+  }
+
+  Future<Map<String, dynamic>> fetchUser(String id) async {
+    if (users[id] == null) {
+      var _query = await ref.child('user/$id').once('value');
+      users[id] = _query.snapshot.val();
+    }
+    return users[id];
   }
 }

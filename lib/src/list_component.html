@@ -3,7 +3,7 @@
   {{page}}/{{count == 0 ? '...' : count}}
   <a [ngClass]="nextClass" [routerLink]="nextLink">next &gt;</a>
 </div>
-<main>
+<main class="main">
   <ol [start]="start + 1">
     <li *ngFor="let i of items">
       <div *ngIf="stories[i] != null">

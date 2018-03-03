@@ -1,0 +1,28 @@
+main {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+p {
+  margin: 4px 0;
+}
+
+a {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #555;
+}
+
+a:hover {
+  color: #0081c6;
+}
+
+.links {
+  margin-top: 12px;
+}

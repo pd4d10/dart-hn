@@ -22,3 +22,17 @@ class TimeAgoPipe extends PipeTransform {
     }
   }
 }
+
+@Pipe('commentText')
+class CommentTextPipe extends PipeTransform {
+  String transform(int count) {
+    switch (count) {
+      case 0:
+        return 'discuss';
+      case 1:
+        return '1 comment';
+      default:
+        return '$count comments';
+    }
+  }
+}

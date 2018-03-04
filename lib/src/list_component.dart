@@ -14,7 +14,7 @@ import 'utils.dart';
   templateUrl: 'list_component.html',
   directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
   providers: const [HNService],
-  pipes: const [TimeAgoPipe],
+  pipes: const [TimeAgoPipe, CommentTextPipe],
 )
 class ListComponent implements OnInit {
   List<int> items = [];

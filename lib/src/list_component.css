@@ -31,6 +31,10 @@ h2 {
   font-weight: 400;
 }
 
+h2.placeholder {
+  visibility: hidden;
+}
+
 h2 a {
   color: #111;
 }
@@ -51,4 +55,8 @@ ol {
 
 li {
   padding: 10px 0;
+}
+
+.item {
+  height: 48px;
 }

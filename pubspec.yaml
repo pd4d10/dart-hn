@@ -12,6 +12,7 @@ dependencies:
   angular_components: ^0.8.0
   angular_router: ^1.0.2
   firebase: ^4.3.0
+  pwa: ^0.1.9
 
 dev_dependencies:
   angular_test: ^1.0.0

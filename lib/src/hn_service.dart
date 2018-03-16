@@ -6,8 +6,8 @@ import 'package:firebase/firebase.dart';
 import 'utils.dart';
 
 DatabaseReference ref;
-Map<int, dynamic> stories = {};
-Map<String, dynamic> users = {};
+Map<int, dynamic> storiesCache = {};
+Map<String, dynamic> usersCache = {};
 
 /// Mock service emulating access to a to-do list stored on a server.
 @Injectable()
@@ -25,18 +25,18 @@ class HNService {
   }
 
   Future<Map<String, dynamic>> fetchItem(int id) async {
-    if (stories[id] == null) {
+    if (storiesCache[id] == null) {
       var _query = await ref.child('item/$id').once('value');
-      stories[id] = _query.snapshot.val();
+      storiesCache[id] = _query.snapshot.val();
     }
-    return stories[id];
+    return storiesCache[id];
   }
 
   Future<Map<String, dynamic>> fetchUser(String id) async {
-    if (users[id] == null) {
+    if (usersCache[id] == null) {
       var _query = await ref.child('user/$id').once('value');
-      users[id] = _query.snapshot.val();
+      usersCache[id] = _query.snapshot.val();
     }
-    return users[id];
+    return usersCache[id];
   }
 }

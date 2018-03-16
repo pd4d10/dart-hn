@@ -1,9 +1,6 @@
-import 'dart:async';
 import 'dart:math';
-
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
-
 import 'hn_service.dart';
 import 'pipe.dart';
 import 'utils.dart';
@@ -22,11 +19,12 @@ class ListComponent implements OnInit {
   String tag;
   int total = 0; // TODO: Fix blink
 
-  Map<int, dynamic> stories = {};
   final Router _router;
   final RouteParams _routeParams;
   final HNService _service;
   final PAGE_SIZE = 30;
+
+  get stories => storiesCache;
 
   ListComponent(this._routeParams, this._router, this._service) {
     var _tag = _routeParams.get('tag');
@@ -84,9 +82,7 @@ class ListComponent implements OnInit {
     total = _items.length;
     items = _items.sublist(start, min(start + PAGE_SIZE, total));
     items.forEach((id) {
-      _service.fetchItem((id)).then((data) {
-        stories[id] = data;
-      });
+      _service.fetchItem(id);
     });
   }
 }

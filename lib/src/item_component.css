@@ -1,0 +1,36 @@
+.title {
+  padding: 16px 24px;
+  border-bottom: 4px solid #eee;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+h2 a {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.domain {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.title p {
+  color: #707070;
+  font-size: 13px;
+}
+
+.title p a {
+  color: #707070;
+  text-decoration: underline;
+}
+
+.comments {
+  padding: 0 10px;
+}

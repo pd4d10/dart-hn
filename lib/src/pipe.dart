@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'package:angular/angular.dart';
 
 @Pipe('timeAgo')
@@ -35,4 +36,27 @@ class CommentTextPipe extends PipeTransform {
         return '$count comments';
     }
   }
+}
+
+@Pipe('domain')
+class DomainPipe extends PipeTransform {
+  String transform(String url) {
+    return '(' + Uri.parse(url).host + ')';
+  }
+}
+
+@Pipe('userLink')
+class UserLinkPipe extends PipeTransform {
+  dynamic transform(String id) => [
+        'User',
+        {'id': id}
+      ];
+}
+
+@Pipe('itemLink')
+class ItemLinkPipe extends PipeTransform {
+  dynamic transform(int id) => [
+        'Item',
+        {'id': id.toString()}
+      ];
 }

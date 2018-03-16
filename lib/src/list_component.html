@@ -16,9 +16,9 @@
           </h2>
           <p *ngIf="stories[i]['type'] != 'job'">
             {{stories[i]['score']}} points by
-            <a [routerLink]="getUserLink(stories[i]['by'])">{{stories[i]['by']}}</a>
+            <a [routerLink]="stories[i]['by'] | userLink">{{stories[i]['by']}}</a>
             {{stories[i]['time'] | timeAgo}} |
-            <a [routerLink]="getItemLink(stories[i]['id'])">
+            <a [routerLink]="stories[i]['id'] | itemLink">
               {{stories[i]['descendants'] | commentText}}
             </a>
           </p>

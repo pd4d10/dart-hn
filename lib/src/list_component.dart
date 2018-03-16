@@ -11,7 +11,7 @@ import 'utils.dart';
   templateUrl: 'list_component.html',
   directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
   providers: const [HNService],
-  pipes: const [TimeAgoPipe, CommentTextPipe],
+  pipes: const [TimeAgoPipe, CommentTextPipe, ItemLinkPipe, UserLinkPipe],
 )
 class ListComponent implements OnInit {
   List<int> items = [];
@@ -66,15 +66,6 @@ class ListComponent implements OnInit {
   getClass(bool _valid) {
     return _valid ? '' : 'disabled';
   }
-
-  getUserLink(id) => [
-        'User',
-        {'id': id}
-      ];
-  getItemLink(id) => [
-        'Item',
-        {'id': id}
-      ];
 
   @override
   ngOnInit() async {

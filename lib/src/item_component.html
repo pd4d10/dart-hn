@@ -1,9 +1,15 @@
 <main>
-  <div *ngIf="item != null" class="title">
-    <h2><a [href]="item['url']">{{item['title']}}</a></h2>
-    <div class="domain">{{item['url'] | domain}}</div>
-    <p>{{item['score']}} points by <a [routerLink]="item['by'] | userLink">{{item['by']}}</a></p>
-  </div>
-  <div class="comments">
+  <div *ngIf="item != null">
+    <div class="title">
+      <h2><a [href]="item['url']">{{item['title']}}</a></h2>
+      <div class="domain">{{item['url'] | domain}}</div>
+      <p>{{item['score']}} points by <a [routerLink]="item['by'] | userLink">{{item['by']}}</a></p>
+    </div>
+    <div class="count">{{ item['descendants'] }} comments</div>
+    <div class="comments">
+      <div class="comment" *ngFor="let kid of item['kids']">
+        <comment-component [id]="kid"></comment-component>
+      </div>
+    </div>
   </div>
 </main>

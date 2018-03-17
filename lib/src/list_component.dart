@@ -24,7 +24,7 @@ class ListComponent implements OnInit {
   final HNService _service;
   final PAGE_SIZE = 30;
 
-  get stories => storiesCache;
+  get stories => itemsCache;
 
   ListComponent(this._routeParams, this._router, this._service) {
     var _tag = _routeParams.get('tag');

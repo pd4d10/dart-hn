@@ -34,3 +34,9 @@ h2 a {
 .comments {
   padding: 0 10px;
 }
+
+.count {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}

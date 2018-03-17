@@ -1,0 +1,10 @@
+<div *ngIf="item != null">
+  <div>
+    <a [routerLink]="item['by'] | userLink">{{item['by']}}</a>
+    <span>{{item['time'] | timeAgo}}</span>
+  </div>
+  <div class="text" [innerHTML]="item['text']"></div>
+  <div *ngIf="item['kids'] != null" class="children">
+    <comment-component *ngFor="let kid of item['kids']" [id]="kid"></comment-component>
+  </div>
+</div>

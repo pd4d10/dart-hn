@@ -3,7 +3,8 @@
     <a [routerLink]="item['by'] | userLink">{{item['by']}}</a>
     <span>{{item['time'] | timeAgo}}</span>
   </header>
-  <div class="text" [innerHTML]="item['text']"></div>
+  <div class="text" *ngIf="!item['deleted']" [innerHTML]="item['text']"></div>
+  <div class="text" *ngIf="item['deleted']">[deleted]</div>
   <div *ngIf="item['kids'] != null" class="children">
     <comment-component *ngFor="let kid of item['kids']" [id]="kid"></comment-component>
   </div>

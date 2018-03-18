@@ -25,19 +25,16 @@ class ItemComponent implements OnInit {
     item = await fetchItems(_id);
   }
 
-  // get items => itemsCache;
-
   fetchItems(int id) async {
-    // print(id);
     var _item = await this._service.fetchItem(id);
+    // print(id);
 
-    if (_item['kids'] != null) {
+    if (_item != null && _item['kids'] != null) {
+      // print(_item);
       var kids = _item['kids'] as List<int>;
-      if (kids != null) {
-        kids.forEach((kid) {
-          fetchItems(kid);
-        });
-      }
+      kids.forEach((kid) {
+        fetchItems(kid);
+      });
     }
 
     return _item;

@@ -2,7 +2,8 @@
   padding-left: 10px;
 }
 
-.text p {
+/* https://stackoverflow.com/questions/36265026/angular-2-innerhtml-styling */
+:host ::ng-deep .text p {
   margin-top: 10px;
   margin-bottom: 10px;
 }

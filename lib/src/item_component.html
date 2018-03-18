@@ -5,10 +5,10 @@
       <div class="domain">{{item['url'] | domain}}</div>
       <p>{{item['score']}} points by <a [routerLink]="item['by'] | userLink">{{item['by']}}</a></p>
     </div>
-    <div class="count">{{ item['descendants'] }} comments</div>
-    <div class="comments">
-      <div class="comment" *ngFor="let kid of item['kids']">
-        <comment-component [id]="kid"></comment-component>
+    <div class="container">
+      <div class="count">{{ item['descendants'] }} comments</div>
+      <div class="comments">
+        <comment-component [id]="kid" *ngFor="let kid of item['kids']"></comment-component>
       </div>
     </div>
   </div>

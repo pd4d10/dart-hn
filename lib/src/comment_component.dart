@@ -8,7 +8,7 @@ import 'pipe.dart';
   templateUrl: 'comment_component.html',
   styleUrls: const ['comment_component.css'],
   providers: const [HNService],
-  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES, CommentComponent],
   pipes: const [DomainPipe, UserLinkPipe, TimeAgoPipe],
 )
 class CommentComponent implements OnInit {

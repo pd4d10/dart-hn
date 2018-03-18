@@ -1,9 +1,33 @@
+header {
+  margin-bottom: 16px;
+  color: #707070;
+}
+
+header a {
+  color: #707070;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+header span {
+  margin-left: 4px;
+  font-size: 13px;
+}
+
 .children {
   padding-left: 10px;
+}
+
+.text {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+  font-size: 15px;
 }
 
 /* https://stackoverflow.com/questions/36265026/angular-2-innerhtml-styling */
 :host ::ng-deep .text p {
   margin-top: 10px;
   margin-bottom: 10px;
+  line-height: 1.5;
 }

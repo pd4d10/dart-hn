@@ -1,6 +1,10 @@
+.container {
+  padding: 12px 24px;
+}
+
 .title {
   padding: 16px 24px;
-  border-bottom: 4px solid #eee;
+  border-bottom: 12px solid #eee;
   margin-bottom: 10px;
 }
 
@@ -29,10 +33,6 @@ h2 a {
 .title p a {
   color: #707070;
   text-decoration: underline;
-}
-
-.comments {
-  padding: 0 10px;
 }
 
 .count {

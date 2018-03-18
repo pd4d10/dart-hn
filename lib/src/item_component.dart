@@ -28,17 +28,16 @@ class ItemComponent implements OnInit {
   // get items => itemsCache;
 
   fetchItems(int id) async {
+    // print(id);
     var _item = await this._service.fetchItem(id);
 
-    if (_item['type'] == 'story') {
+    if (_item['kids'] != null) {
       var kids = _item['kids'] as List<int>;
       if (kids != null) {
         kids.forEach((kid) {
           fetchItems(kid);
         });
       }
-    } else {
-      // TODO
     }
 
     return _item;

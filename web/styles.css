@@ -30,5 +30,7 @@ p {
 
 main {
   max-width: 980px;
+  padding-left: 12px;
+  padding-right: 12px;
   margin: 48px auto 20px;
 }

@@ -15,7 +15,7 @@ header span {
 }
 
 .children {
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 .text {
@@ -23,6 +23,7 @@ header span {
   border-bottom: 1px solid #eee;
   margin-bottom: 12px;
   font-size: 15px;
+  word-wrap: break-word;
 }
 
 /* https://stackoverflow.com/questions/36265026/angular-2-innerhtml-styling */

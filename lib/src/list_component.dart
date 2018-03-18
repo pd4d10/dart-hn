@@ -39,7 +39,7 @@ class ListComponent implements OnInit {
     }
     var _page = _routeParams.get('page') ?? '1';
     page = int.parse(_page, onError: (_) => null) ?? 1;
-    print(_routeParams.params);
+    // print(_routeParams.params);
   }
 
   get start => (page - 1) * PAGE_SIZE;

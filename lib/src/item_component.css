@@ -1,9 +1,9 @@
 .container {
-  padding: 12px 24px;
+  padding: 12px;
 }
 
 .title {
-  padding: 16px 24px;
+  padding: 16px 12px;
   border-bottom: 12px solid #eee;
   margin-bottom: 10px;
 }

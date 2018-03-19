@@ -1,28 +1,18 @@
 {
-  "name": "dart_hn",
-  "short_name": "dart_hn",
+  "name": "Dart Hacker News",
+  "short_name": "Dart HN",
   "description": "Hacker News PWA built with AngularDart",
   "lang": "en-US",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "theme_color": "#ffffff",
+  "theme_color": "#00a4e4",
   "background_color": "#ffffff",
-  "__mock_values__icons": [
+  "icons": [
     {
-      "src": "launcher-icon-1x.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "launcher-icon-2x.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "launcher-icon-4x.png",
-      "sizes": "192x192",
+      "src": "icon.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ]

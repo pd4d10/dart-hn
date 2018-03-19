@@ -8,6 +8,6 @@ void main() {
     new Provider(pwa.Client, useValue: new pwa.Client()),
     ROUTER_PROVIDERS,
     // Remove next line in production
-    provide(LocationStrategy, useClass: HashLocationStrategy),
+    // provide(LocationStrategy, useClass: HashLocationStrategy),
   ]);
 }
